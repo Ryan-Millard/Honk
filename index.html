@@ -1,265 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Happy Anniversary</title>
-  <style>
-    /* Modern Font Import */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap');
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-    }
-    
-    body {
-      line-height: 1.6;
-      color: #333;
-      background-color: #fafafa;
-      overflow-x: hidden;
-    }
-    
-    header {
-      background: url('goose-hero-cropped.jpeg') no-repeat center center;
-      background-size: contain; /* Keeping original contain value */
-      position: relative;
-      isolation: isolate;
-    }
-    
-    header::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: -1;
-    }
-    
-    footer {
-      background: url('footer.jpg') no-repeat center center;
-      background-size: contain; /* Keeping original contain value */
-      position: relative;
-      isolation: isolate;
-    }
-    
-    footer::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: -1;
-    }
-    
-    header, footer {
-      width: 100%;
-      height: 600px; /* Keeping original fixed height */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 2rem;
-    }
-    
-    .honk-button {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #ffe82c 0%, #ffcb2c 100%);
-      font-size: 1.8rem;
-      padding: 0.8rem 2rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 50px;
-      color: #333;
-      margin-top: 2rem;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      border-bottom: 5px solid #ff7600;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-    
-    .honk-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-    }
-    
-    .honk-button:active {
-      transform: translateY(2px);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 5em;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3em;
-      font-weight: 100;
-      max-width: 900px;
-      margin-bottom: 1.5rem;
-    }
-    
-    h1, h2 {
-      color: #ffe82c;
-      text-align: center;
-      text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
-    }
-    
-    hr {
-      width: 40vw;
-      margin: 5% auto;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #000, transparent);
-      border: none;
-    }
-    
-    .paragraph-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 4em;
-      padding: 2em;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    
-    .paragraph {
-      flex: 1 1 100%;
-      min-width: 400px;
-      max-width: 400px;
-      font-size: 1.5em;
-      line-height: 1.8;
-      padding: 2rem;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .paragraph::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 5px;
-      height: 100%;
-      background: linear-gradient(to bottom, #ffe82c, #ff7600);
-    }
-    
-    .paragraph:hover {
-      transform: translateY(-10px);
-    }
-    
-    /* 2 per row */
-    @media (min-width: 600px) {
-      .paragraph {
-        flex: 1 1 45%;
-      }
-    }
-    
-    /* 4 per row */
-    @media (min-width: 1000px) {
-      .paragraph {
-        flex: 1 1 20%;
-      }
-    }
-    
-    @media (max-width: 700px) {
-      h1 {
-        font-size: 3.5rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .paragraph {
-        font-size: 1.3rem;
-        min-width: 300px;
-      }
-    }
-    
-    .footer-content {
-      text-align: center;
-      max-width: 900px;
-    }
-    
-    /* Animation effects */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    header h1, header h2, .honk-button, .paragraph, footer h1, footer h2 {
-      animation: fadeIn 1s ease forwards;
-    }
-    
-    header h1 { animation-delay: 0.3s; }
-    header h2 { animation-delay: 0.1s; }
-    .honk-button { animation-delay: 0.5s; }
-    
-    .anniversary-years {
-      background: -webkit-linear-gradient(#ffe82c, #ff7600);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 900;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h2>Happy Anniversary</h2>
-    <h1>From <span class="anniversary-years">2022 to 2025</span></h1>
-    <button class="honk-button">HONK!</button>
-  </header>
-  
-  <hr>
-  
-  <div class="paragraph-container">
-    <div class="paragraph">
-      Oh, goose. if only you knew all the things that i would do for you if only i could. you've made me so happy in the years that i've known you, and i honestly can't wait to see what the future has in store for us. thank you for being so good to me.
-    </div>
-    
-    <div class="paragraph">
-      i wanted to give you so many things, but i had to control myself because i know that we both want to see each other. i really struggled to come up with a good idea for something to give you. i hope that this is good enough, but i still wish i could give you more because you deserve it.
-    </div>
-    
-    <div class="paragraph">
-      i really suffered around this time last year, and i truly thought that i was going to die when i got in that accident. it sucked that it was on our anniversary. in any case, I'm extremely glad that i didn't because it allowed me to spend another year with you - another happy year.
-    </div>
-    
-    <div class="paragraph">
-      If it hadn't been for my survival, I wouldn't have had the extra time to discover your cute mannerisms, and you know how much i love listening to you playing your iPad kid games as i fall asleep - or even get to meeting you. meeting you felt like a dream that came true.
-    </div>
-  </div>
-  
-  <hr>
-  
-  <footer>
-    <div class="footer-content">
-      <h1>So thank you, goose.</h1>
-      <h2>I have my fingers crossed for many more years with you.</h2>
-    </div>
-  </footer>
+	<head>
+		<meta charset="UTF-8">
+		<title>Happy Anniversary</title>
+		<style>
+/* Modern Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600;700&display=swap');
 
-  <script>
-    // Simple interaction for the honk button
-    document.querySelector('.honk-button').addEventListener('click', function() {
-      this.innerHTML = "HONK HONK!";
-      setTimeout(() => {
-        this.innerHTML = "HONK!";
-      }, 1000);
-    });
-  </script>
-</body>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+	body {
+		line-height: 1.6;
+		color: #333;
+		background-color: #fafafa;
+		overflow-x: hidden;
+	}
+
+	header {
+		background: url('goose-hero-cropped.jpeg') no-repeat center center;
+		background-size: contain; /* Keeping original contain value */
+		position: relative;
+		isolation: isolate;
+	}
+
+	header::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.4);
+		z-index: -1;
+	}
+
+	footer {
+		background: url('footer.jpg') no-repeat center center;
+		background-size: contain; /* Keeping original contain value */
+		position: relative;
+		isolation: isolate;
+	}
+
+	footer::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: -1;
+	}
+
+	header, footer {
+		width: 100%;
+		height: 600px; /* Keeping original fixed height */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 2rem;
+	}
+
+	.honk-button {
+		font-family: 'Montserrat', sans-serif;
+		background: linear-gradient(135deg, #ffe82c 0%, #ffcb2c 100%);
+		font-size: 1.8rem;
+		padding: 0.8rem 2rem;
+		font-weight: 700;
+		border: none;
+		border-radius: 50px;
+		color: #333;
+		margin-top: 2rem;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		cursor: pointer;
+		position: relative;
+		overflow: hidden;
+		transition: all 0.3s ease;
+		border-bottom: 5px solid #ff7600;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+	}
+
+	.honk-button:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+	}
+
+	.honk-button:active {
+		transform: translateY(2px);
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	}
+
+	h1 {
+		font-family: 'Playfair Display', serif;
+		font-size: 5em;
+		font-weight: bold;
+		margin-bottom: 1rem;
+		line-height: 1.2;
+	}
+
+	h2 {
+		font-family: 'Montserrat', sans-serif;
+		font-size: 3em;
+		font-weight: 100;
+		max-width: 900px;
+		margin-bottom: 1.5rem;
+	}
+
+	h1, h2 {
+		color: #ffe82c;
+		text-align: center;
+		text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7);
+	}
+
+	hr {
+		width: 40vw;
+		margin: 5% auto;
+		height: 2px;
+		background: linear-gradient(90deg, transparent, #000, transparent);
+		border: none;
+	}
+
+	.paragraph-container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 4em;
+		padding: 2em;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
+
+	.paragraph {
+		text-transform: capitalize;
+		flex: 1 1 100%;
+		min-width: 400px;
+		max-width: 400px;
+		font-size: 1.5em;
+		line-height: 1.8;
+		padding: 2rem;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.paragraph::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 5px;
+		height: 100%;
+		background: linear-gradient(to bottom, #ffe82c, #ff7600);
+	}
+
+	.paragraph:hover {
+		transform: translateY(-10px);
+	}
+
+	/* 2 per row */
+	@media (min-width: 600px) {
+		.paragraph {
+			flex: 1 1 45%;
+		}
+	}
+
+	/* 4 per row */
+	@media (min-width: 1000px) {
+		.paragraph {
+			flex: 1 1 20%;
+		}
+	}
+
+	@media (max-width: 700px) {
+		h1 {
+			font-size: 3.5rem;
+		}
+
+		h2 {
+			font-size: 1.8rem;
+		}
+
+		.paragraph {
+			font-size: 1.3rem;
+			min-width: 300px;
+		}
+	}
+
+	.footer-content {
+		text-align: center;
+		max-width: 900px;
+	}
+
+	/* Animation effects */
+	@keyframes fadeIn {
+		from { opacity: 0; transform: translateY(20px); }
+		to { opacity: 1; transform: translateY(0); }
+	}
+
+	header h1, header h2, .honk-button, .paragraph, footer h1, footer h2 {
+		animation: fadeIn 1s ease forwards;
+	}
+
+	header h1 { animation-delay: 0.3s; }
+	header h2 { animation-delay: 0.1s; }
+	.honk-button { animation-delay: 0.5s; }
+
+	.anniversary-years {
+		background: -webkit-linear-gradient(#ffe82c, #ff7600);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 900;
+	}
+		</style>
+	</head>
+	<body>
+		<header>
+			<h2>Happy Anniversary</h2>
+			<h1>From <span class="anniversary-years">2022 to 2025</span></h1>
+			<button class="honk-button">HONK!</button>
+		</header>
+
+		<hr>
+
+		<div class="paragraph-container">
+			<div class="paragraph">
+				Oh, goose. if only you knew all the things that i would do for you if only i could. you've made me so happy in the years that i've known you, and i honestly can't wait to see what the future has in store for us. thank you for being so good to me.
+			</div>
+
+			<div class="paragraph">
+				i wanted to give you so many things, but i had to control myself because i know that we both want to see each other. i really struggled to come up with a good idea for something to give you. i hope that this is good enough, but i still wish i could give you more because you deserve it.
+			</div>
+
+			<div class="paragraph">
+				i really suffered around this time last year, and i truly thought that i was going to die when i got in that accident. it sucked that it was on our anniversary. in any case, I'm extremely glad that i didn't because it allowed me to spend another year with you - another happy year.
+			</div>
+
+			<div class="paragraph">
+				If it hadn't been for my survival, I wouldn't have had the extra time to discover your cute mannerisms, and you know how much i love listening to you playing your iPad kid games as i fall asleep - or even get to meeting you. meeting you felt like a dream that came true.
+			</div>
+		</div>
+
+		<hr>
+
+		<footer>
+			<div class="footer-content">
+				<h1>So thank you, goose.</h1>
+				<h2>I have my fingers crossed for many more years with you.</h2>
+			</div>
+		</footer>
+
+		<script>
+			// Simple interaction for the honk button
+			document.querySelector('.honk-button').addEventListener('click', function() {
+							this.innerHTML = "HONK HONK!";
+							setTimeout(() => {
+											this.innerHTML = "HONK!";
+										}, 1000);
+						});
+		</script>
+	</body>
 </html>
